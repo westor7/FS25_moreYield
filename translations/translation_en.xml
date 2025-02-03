@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+	<translationContributors/>
+	<texts>
+		<text name = "my_setting_title" 		text = "More Yield - Settings"/>
+		<text name = "my_Multiplier_short" 		text = "Harvesting Yield Multiplier"/>
+		<text name = "my_Multiplier_long" 		text = "Select your multiplier number, higher number gets more yield."/>
+		<text name = "my_blink_warn" 			text = "Warning: Harvesting yield multiplier has been updated."/>
+	</texts>
+</l10n>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="94">
+    <author>westor</author>
+    <version>1.0.0.1</version>
+    <title>
+        <en>More Yield</en>
+		<de>Mehr Ertrag</de>
+		<fr>Plus De Rendement</fr>
+    </title>
+    <description>
+<en><![CDATA[
+More Yield is a mod that increase your harvesting yield in realtime of some base game crops.
+
+You can adjust the multiplier under Game Settings (Press ESC button) so you can
+increase or decrease the value in your desire. (default: 1.5 - min: 1.5 - max: 100)
+
+westor7 @ Discord for any suggestions/problems.
+
+NOTE: This mod does NOT working on multiplayer!
+
+Supported crops:
+
+- WHEAT
+- BARLEY
+- CANOLA
+- OAT
+- MAIZE
+- SUNFLOWER
+- SOYBEAN
+- COTTON
+- SORGHUM
+- GRAPE
+- OLIVE
+- POPLAR
+- GRASS
+- MEADOW
+- RICE
+- RICELONGGRAIN
+- PEA
+- POTATO
+- CARROT
+- PARSNIP
+- BEETROOT
+- SPINACH
+- GREENBEAN
+- SUGARBEET
+- SUGARCANE
+]]>
+</en>
+<de>
+<![CDATA[
+More Yield ist ein Mod, der Ihren Ernteertrag einiger Basisspielpflanzen in Echtzeit erhöht.
+
+Sie können den Multiplikator unter den Spieleinstellungen anpassen (ESC-Taste drücken), sodass Sie
+den Wert nach Wunsch erhöhen oder verringern können. (Standard: 1.5 – min.: 1.5 – max.: 100)
+
+westor7 @ Discord für alle Vorschläge/Probleme.
+
+HINWEIS: Dieser Mod funktioniert NICHT im Mehrspielermodus!
+
+Unterstützte Pflanzen:
+
+- WHEAT
+- BARLEY
+- CANOLA
+- OAT
+- MAIZE
+- SUNFLOWER
+- SOYBEAN
+- COTTON
+- SORGHUM
+- GRAPE
+- OLIVE
+- POPLAR
+- GRASS
+- MEADOW
+- RICE
+- RICELONGGRAIN
+- PEA
+- POTATO
+- CARROT
+- PARSNIP
+- BEETROOT
+- SPINACH
+- GREENBEAN
+- SUGARBEET
+- SUGARCANE
+]]>
+</de>
+<fr>
+<![CDATA[More Yield est un mod qui augmente votre rendement de récolte en temps réel de certaines cultures du jeu de base.
+
+Vous pouvez ajuster le multiplicateur dans les paramètres du jeu (appuyez sur le bouton ESC) afin de pouvoir
+augmenter ou diminuer la valeur à votre guise. (par défaut: 1.5 - min: 1.5 - max: 100)
+
+westor7 @ Discord pour toute suggestion/problème.
+
+REMARQUE: ce mod ne fonctionne PAS en multijoueur!
+
+Cultures prises en charge:
+
+- WHEAT
+- BARLEY
+- CANOLA
+- OAT
+- MAIZE
+- SUNFLOWER
+- SOYBEAN
+- COTTON
+- SORGHUM
+- GRAPE
+- OLIVE
+- POPLAR
+- GRASS
+- MEADOW
+- RICE
+- RICELONGGRAIN
+- PEA
+- POTATO
+- CARROT
+- PARSNIP
+- BEETROOT
+- SPINACH
+- GREENBEAN
+- SUGARBEET
+- SUGARCANE
+]]>
+</fr>
+    </description>
+
+    <iconFilename>icon_moreYield.png</iconFilename>
+	
+    <multiplayer supported="true"/>
+	
+	<l10n filenamePrefix="translations/translation"/>
+	
+    <extraSourceFiles>
+		<sourceFile filename="scripts/lib/UIHelper.lua" />
+		<sourceFile filename="scripts/moreYieldUI.lua" />
+		<sourceFile filename="scripts/moreYield.lua"/>
+    </extraSourceFiles>
+
+</modDesc>
