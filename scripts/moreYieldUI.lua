@@ -30,7 +30,7 @@ function moreYieldUI:registerSettings()
         { name = "Multiplier", min = 1.5, max = 100, step = 0.5, autoBind = true, nillable = false }
     }
 
-    UIHelper.createControlsDynamically(settingsPage, "my_setting_title", self, controlProperties, "my_")
+    UIHelper.createControlsDynamically(settingsPage, "myi_setting_title", self, controlProperties, "myi_")
     UIHelper.setupAutoBindControls(self, self.settings, moreYieldUI.onSettingsChange)
 
     -- Apply initial values
@@ -78,5 +78,5 @@ function moreYieldUI:onFrameClose()
 	
 	moreYield:Init()
 
-	g_currentMission:showBlinkingWarning(g_i18n:getText("my_blink_warn"), 5000)
+	g_currentMission:showBlinkingWarning(g_i18n:getText("myi_blink_warn"), 5000)
 end
