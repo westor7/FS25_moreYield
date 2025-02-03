@@ -2,9 +2,9 @@
 <l10n>
 	<translationContributors/>
 	<texts>
-		<text name = "my_setting_title" 		text = "More Yield - Paramètres"/>
-		<text name = "my_Multiplier_short" 		text = "Multiplicateur de rendement de récolte"/>
-		<text name = "my_Multiplier_long" 		text = "Sélectionnez votre numéro multiplicateur, un nombre plus élevé donne plus de rendement."/>
-		<text name = "my_blink_warn" 			text = "Avertissement : le multiplicateur de rendement de récolte a été mis à jour."/>
+		<text name = "myi_setting_title" 		text = "More Yield - Paramètres"/>
+		<text name = "myi_Multiplier_short" 		text = "Multiplicateur de rendement de récolte"/>
+		<text name = "myi_Multiplier_long" 		text = "Sélectionnez votre numéro multiplicateur, un nombre plus élevé donne plus de rendement."/>
+		<text name = "myi_blink_warn" 			text = "Avertissement : le multiplicateur de rendement de récolte a été mis à jour."/>
 	</texts>
 </l10n>
