@@ -2,9 +2,9 @@
 <l10n>
 	<translationContributors/>
 	<texts>
-		<text name = "myi_setting_title" 		text = "More Yield - Settings"/>
+		<text name = "myi_setting_title" 			text = "More Yield - Settings"/>
 		<text name = "myi_Multiplier_short" 		text = "Harvesting Yield Multiplier"/>
-		<text name = "myi_Multiplier_long" 		text = "Select your multiplier number, higher number gets more yield."/>
-		<text name = "myi_blink_warn" 			text = "Warning: The harvesting yield multiplier has been updated."/>
+		<text name = "myi_Multiplier_long" 			text = "Select your multiplier number, higher number gets more yield."/>
+		<text name = "myi_blink_warn" 				text = "Warning: The harvesting yield multiplier has been updated."/>
 	</texts>
 </l10n>

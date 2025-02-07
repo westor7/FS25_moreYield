@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="94">
-    <author>westor</author>
-    <version>1.0.0.2</version>
-    <title>
-        <en>More Yield</en>
-	<de>Mehr Ertrag</de>
-	<fr>Plus De Rendement</fr>
-    </title>
-    <description>
+	<author>westor</author>
+	<version>1.0.1.0</version>
+	<title>
+		<en>More Yield</en>
+		<de>Mehr Ertrag</de>
+		<fr>Plus De Rendement</fr>
+	</title>
+	<description>
 <en><![CDATA[
-More Yield is a mod that increase your harvesting yield in realtime of some base game crops.
+More Yield is a mod that increase your harvesting yield in real time of some base game crops.
 
 You can adjust the multiplier under Game Settings (Press ESC button) so you can
-increase or decrease the value in your desire. (default: 1.5 - min: 1.5 - max: 100)
+increase or decrease the value in your desire. (default: 2 - min: 1.5 - max: 100)
 
-westor7 @ Discord or https://github.com/westor7/FS25_moreField for any suggestions/problems.
+westor7 @ Discord for any suggestions/problems.
 
 NOTE: This mod does NOT working on multiplayer!
 
@@ -49,12 +49,12 @@ Supported crops:
 </en>
 <de>
 <![CDATA[
-More Yield ist ein Mod, der Ihren Ernteertrag einiger Basisspielpflanzen in Echtzeit erhöht.
+Mehr Ertrag ist ein Mod, der Ihren Ernteertrag einiger Basisspielpflanzen in Echtzeit erhöht.
 
 Sie können den Multiplikator unter den Spieleinstellungen anpassen (ESC-Taste drücken), sodass Sie
-den Wert nach Wunsch erhöhen oder verringern können. (Standard: 1.5 – min.: 1.5 – max.: 100)
+den Wert nach Wunsch erhöhen oder verringern können. (Standard: 2 – min.: 1.5 – max.: 100)
 
-westor7 @ Discord oder https://github.com/westor7/FS25_moreField für alle Vorschläge/Probleme.
+westor7 @ Discord für alle Vorschläge/Probleme.
 
 HINWEIS: Dieser Mod funktioniert NICHT im Mehrspielermodus!
 
@@ -88,12 +88,13 @@ Unterstützte Pflanzen:
 ]]>
 </de>
 <fr>
-<![CDATA[More Yield est un mod qui augmente votre rendement de récolte en temps réel de certaines cultures du jeu de base.
+<![CDATA[
+Plus De Rendement est un mod qui augmente votre rendement de récolte en temps réel de certaines cultures du jeu de base.
 
 Vous pouvez ajuster le multiplicateur dans les paramètres du jeu (appuyez sur le bouton ESC) afin de pouvoir
-augmenter ou diminuer la valeur à votre guise. (par défaut: 1.5 - min: 1.5 - max: 100)
+augmenter ou diminuer la valeur à votre guise. (par défaut: 2 - min: 1.5 - max: 100)
 
-westor7 @ Discord ou https://github.com/westor7/FS25_moreField pour toute suggestion/problème.
+westor7 @ Discord pour toute suggestion/problème.
 
 REMARQUE: ce mod ne fonctionne PAS en multijoueur!
 
@@ -126,7 +127,7 @@ Cultures prises en charge:
 - SUGARCANE
 ]]>
 </fr>
-    </description>
+	</description>
 
 	<iconFilename>icon_moreYield.png</iconFilename>
 	
