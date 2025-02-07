@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+	<translationContributors>Google translate</translationContributors>
+	<texts>
+		<text name = "myi_setting_title" 			text = "Más rendimiento - configuración"/>
+		<text name = "myi_Multiplier_short" 		text = "Multiplicador de rendimiento de cosecha"/>
+		<text name = "myi_Multiplier_long" 			text = "Seleccione su número multiplicador, cuanto mayor sea el número, mayor será el rendimiento."/>
+		<text name = "myi_blink_warn" 				text = "Advertencia: Se ha actualizado el multiplicador de rendimiento de la cosecha."/>
+	</texts>
+</l10n>

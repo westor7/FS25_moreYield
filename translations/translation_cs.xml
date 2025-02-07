@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+	<translationContributors>Google translate</translationContributors>
+	<texts>
+		<text name = "myi_setting_title" 			text = "Více výnosů – Nastavení"/>
+		<text name = "myi_Multiplier_short" 		text = "Multiplikátor sklizně"/>
+		<text name = "myi_Multiplier_long" 			text = "Vyberte číslo násobitele, vyšší číslo získá větší výnos."/>
+		<text name = "myi_blink_warn" 				text = "Upozornění: Multiplikátor výnosu sklizně byl aktualizován."/>
+	</texts>
+</l10n>
