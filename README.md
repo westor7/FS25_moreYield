@@ -28,11 +28,15 @@ Supports `25` Crops: `WHEAT BARLEY CANOLA OAT MAIZE SUNFLOWER SOYBEAN COTTON SOR
 
 ## Full Changelog
 
-### 1.0.0.0
-- First public release.
+### 1.0.1.0
+- Updated some code parts.
+- Added more languages.
+- Changed the default multiplier value from `1.5` to `2` value.
 ### 1.0.0.1
 - Changed the settings multiplier from `1` to `0.5`, now you can increase/decreaase by `0.5` instead of `1` value.
 - Updated some code parts.
 - Fixed some translation typo issues.
+### 1.0.0.0
+- First public release.
 
 -------------------------------------
