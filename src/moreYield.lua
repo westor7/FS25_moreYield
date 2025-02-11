@@ -7,7 +7,6 @@ moreYield = {}
 moreYield.settings = {}
 moreYield.name = g_currentModName or "FS25_moreYield"
 moreYield.version = "1.0.1.0"
-moreYield.dir = g_currentModDirectory
 moreYield.initUI = false
 
 function moreYield.prerequisitesPresent(specializations)
@@ -118,10 +117,10 @@ end
 function moreYield:saveSettings()
 	Logging.info("[%s]: Trying to save settings..", moreYield.name)
 
-	local modSettingsDir = getUserProfileAppPath() .. "modSettings"
-	local createXmlFile = modSettingsDir .. "/" .. "moreYield.xml"
-
-	local xmlFile = createXMLFile("moreYield", createXmlFile, "moreYield")
+	local xmlPath = getUserProfileAppPath() .. "modSettings" .. "/" .. "moreYield.xml"
+	local xmlFile = createXMLFile("moreYield", xmlPath, "moreYield")
+	
+	Logging.info("[%s]: Saving settings to '%s' ..", moreYield.name, xmlPath)
 	
 	setXMLFloat(xmlFile, "moreYield.yield#Multiplier",moreYield.settings.Multiplier)
 	
@@ -134,13 +133,14 @@ end
 function moreYield:loadSettings()
 	Logging.info("[%s]: Trying to load settings..", moreYield.name)
 	
-	local modSettingsDir = getUserProfileAppPath() .. "modSettings"
-	local fileNamePath = modSettingsDir .. "/" .. "moreYield.xml"
+	local xmlPath = getUserProfileAppPath() .. "modSettings" .. "/" .. "moreYield.xml"
 	
-	if fileExists(fileNamePath) then
+	Logging.info("[%s]: Loading settings from '%s' ..", moreYield.name, xmlPath)
+	
+	if fileExists(xmlPath) then
 		Logging.info("[%s]: File founded, loading now the settings..", moreYield.name)
 		
-		local xmlFile = loadXMLFile("moreYield", fileNamePath)
+		local xmlFile = loadXMLFile("moreYield", xmlPath)
 		
 		if xmlFile == 0 then
 			Logging.warning("[%s]: Could not read the data from XML file, maybe the XML file is empty or corrupted, using the default!", moreYield.name)
@@ -152,13 +152,7 @@ function moreYield:loadSettings()
 			return
 		end
 
-		local Multiplier = getXMLFloat(xmlFile, "moreYield.yield#Multiplier")
-
-		if Multiplier == nil or Multiplier == 0 then
-			Logging.warning("[%s]: Could not parse the correct 'Multiplier' value from the XML file, maybe it is corrupted, using the default!", moreYield.name)
-			
-			Multiplier = 2
-		end
+		local Multiplier = Utils.getNoNil( getXMLFloat(xmlFile, "moreYield.yield#Multiplier"), 2);
 
 		if Multiplier < 1.5 then
 			Logging.warning("[%s]: Could not retrieve the correct 'Multiplier' digital number value because it is lower than '1.5' from the XML file or it is corrupted, using the default!", moreYield.name)
@@ -181,7 +175,7 @@ function moreYield:loadSettings()
 	else
 		moreYield:defSettings()
 
-		Logging.info("[%s]: NOT any File founded!, using the default settings.", moreYield.name)
+		Logging.info("[%s]: NOT any file founded!, using the default settings.", moreYield.name)
 	end
 end
 
