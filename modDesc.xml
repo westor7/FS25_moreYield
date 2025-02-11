@@ -136,9 +136,9 @@ Cultures prises en charge:
 	<l10n filenamePrefix="translations/translation"/>
 	
 	<extraSourceFiles>
-		<sourceFile filename="scripts/lib/UIHelper.lua" />
-		<sourceFile filename="scripts/moreYieldUI.lua" />
-		<sourceFile filename="scripts/moreYield.lua"/>
+		<sourceFile filename="src/lib/UIHelper.lua" />
+		<sourceFile filename="src/moreYieldUI.lua" />
+		<sourceFile filename="src/moreYield.lua"/>
 	</extraSourceFiles>
 
 </modDesc>
