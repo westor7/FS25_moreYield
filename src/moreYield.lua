@@ -1,12 +1,13 @@
 -- Author: westor
 -- Contact: westor7 @ Discord
+-- Github: https://github.com/westor7/FS25_moreYield
 --
 -- Copyright (c) 2025 westor
 
 moreYield = {}
 moreYield.settings = {}
 moreYield.name = g_currentModName or "FS25_moreYield"
-moreYield.version = "1.0.1.0"
+moreYield.version = "1.0.2.0"
 moreYield.initUI = false
 
 function moreYield.prerequisitesPresent(specializations)
@@ -19,7 +20,7 @@ function moreYield:loadMap()
 
 		return
 	end
-	
+			
 	Logging.info("[%s]: Initializing mod v%s (c) 2025 by westor.", moreYield.name, moreYield.version)
 		
 	InGameMenu.onMenuOpened = Utils.appendedFunction(InGameMenu.onMenuOpened, moreYield.initUi)
@@ -67,6 +68,7 @@ function moreYield:Init()
 			"POPLAR",
 			"GRASS",
 			"MEADOW",
+			"OILSEEDRADISH",
 			"RICE",
 			"RICELONGGRAIN",
 			"PEA",
@@ -77,17 +79,32 @@ function moreYield:Init()
 			"SPINACH", 
 			"GREENBEAN", 
 			"SUGARBEET",
-			"SUGARCANE"
+			"SUGARCANE",
+			-- NF MARCH CUSTOM FRUITTYPES
+			"SPELT",
+			"RYE",
+			"TRITICALE",
+			"SUMMERWHEAT",
+			"SUMMERBARLEY",
+			"HEMP",
+			"LINSEED",
+			"ALFALFA",
+			"BEANS",
+			"PEAS"
 		}
 
 	Logging.info("[%s]: Start of crops yield updates. - Total: %s", moreYield.name, table.getn(types))
 
 	for index, validFruit in pairs(g_fruitTypeManager.fruitTypes) do
-		
+
 		for _, fruitTypeName in ipairs(types) do
 			local fruitType = g_fruitTypeManager:getFruitTypeByName(fruitTypeName)
 
 			if fruitType ~= nil and fruitType == validFruit then
+				local OldMultiplier = 0
+				
+				if moreYield.settings.OldMultiplier ~= moreYield.settings.Multiplier then OldMultiplier = moreYield.settings.OldMultiplier end
+			
 				local defLiters = g_fruitTypeManager.fruitTypes[index].defaultLiterPerSqm
 				local oldLiters = math.abs(tonumber(string.format("%.6f", g_fruitTypeManager.fruitTypes[index].literPerSqm)))
 				
@@ -101,8 +118,29 @@ function moreYield:Init()
 				
 				g_fruitTypeManager.fruitTypes[index].literPerSqm = newLiters
 				
-				Logging.info("[%s]: Crop yield literspersqm status updated. - Crop: %s - Default: %s - Old: %s - New: %s - Old Multiplier: %s - New Multiplier: %s", moreYield.name, fruitTypeName, defLiters, oldLiters, newLiters, moreYield.settings.OldMultiplier, moreYield.settings.Multiplier)
+				Logging.info("[%s]: %s crop yield literpersqm status updated. - Default: %s - Old: %s - New: %s - Old Multiplier: %s - New Multiplier: %s", moreYield.name, fruitTypeName, defLiters, oldLiters, newLiters, OldMultiplier, moreYield.settings.Multiplier)
+				
+				local supportWindrow = g_fruitTypeManager.fruitTypes[index].hasWindrow
+				local windrowName = g_fruitTypeManager.fruitTypes[index].windrowName
+				local defwindrowLiters = g_fruitTypeManager.fruitTypes[index].defaultwindrowLiterPerSqm
+				local windrowLiters = g_fruitTypeManager.fruitTypes[index].windrowLiterPerSqm
+				
+				if supportWindrow ~= nil and windrowLiters ~= nil then
+					local oldwindrowLiters = math.abs(tonumber(string.format("%.6f", windrowLiters)))
 					
+					if not defwindrowLiters then 
+						g_fruitTypeManager.fruitTypes[index].defaultwindrowLiterPerSqm = oldwindrowLiters
+						
+						defwindrowLiters = oldwindrowLiters	
+					end
+					
+					local newwindrowLiters = math.abs(tonumber(string.format("%.6f", defwindrowLiters * moreYield.settings.Multiplier)))
+					
+					g_fruitTypeManager.fruitTypes[index].windrowLiterPerSqm = newwindrowLiters
+				
+					Logging.info("[%s]: %s crop yield windrowliterpersqm status updated. - Windrow: %s - Default: %s - Old: %s - New: %s - Old Multiplier: %s - New Multiplier: %s", moreYield.name, fruitTypeName, windrowName, defwindrowLiters, oldwindrowLiters, newwindrowLiters, OldMultiplier, moreYield.settings.Multiplier)
+				end
+				
 				updated = updated + 1
 			end
 			

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="94">
+<modDesc descVersion="95">
 	<author>westor</author>
-	<version>1.0.1.0</version>
+	<version>1.0.2.0</version>
 	<title>
 		<en>More Yield</en>
 		<de>Mehr Ertrag</de>
@@ -45,6 +45,29 @@ Supported crops:
 - GREENBEAN
 - SUGARBEET
 - SUGARCANE
+- SPELT
+- RYE
+- TRITICALE
+- SUMMERWHEAT
+- SUMMERBARLEY
+- HEMP
+- LINSEED
+- ALFALFA
+- BEANS
+- PEAS
+
+Changelog 1.0.2.0
+
+- Added `NF Marsch 4fach` map crops support (+10 more custom crops).
+- Added support to change now and the windrow straw from the crop, if supported.
+- Updated the modDesc version.
+
+Changelog 1.0.1.0
+
+- Updated some code parts.
+- Added more languages.
+- Changed the default multiplier value from 1.5 to 2 value.
+
 ]]>
 </en>
 <de>
@@ -85,6 +108,28 @@ Unterstützte Pflanzen:
 - GREENBEAN
 - SUGARBEET
 - SUGARCANE
+- SPELT
+- RYE
+- TRITICALE
+- SUMMERWHEAT
+- SUMMERBARLEY
+- HEMP
+- LINSEED
+- ALFALFA
+- BEANS
+- PEAS
+
+Änderungsprotokoll 1.0.2.0
+
+- Unterstützung für Kartenfrüchte 'NF Marsch 4fach' hinzugefügt (+10 weitere benutzerdefinierte Früchte).
+- Unterstützung zum Ändern von Stroh und Schwaden der Früchte hinzugefügt, falls unterstützt.
+– Die modDesc-Version wurde aktualisiert.
+
+Änderungsprotokoll 1.0.1.0
+
+- Einige Codeteile aktualisiert.
+- Weitere Sprachen hinzugefügt.
+- Den Standardmultiplikatorwert von 1.5 auf 2 geändert.
 ]]>
 </de>
 <fr>
@@ -125,6 +170,28 @@ Cultures prises en charge:
 - GREENBEAN
 - SUGARBEET
 - SUGARCANE
+- SPELT
+- RYE
+- TRITICALE
+- SUMMERWHEAT
+- SUMMERBARLEY
+- HEMP
+- LINSEED
+- ALFALFA
+- BEANS
+- PEAS
+
+Journal des modifications 1.0.2.0
+
+- Ajout de la prise en charge des cultures de carte 'NF Marsch 4fach' (+ 10 cultures personnalisées supplémentaires).
+- Ajout de la prise en charge de la modification de la paille de l'andain de la culture, si prise en charge.
+- Mise à jour de la version modDesc.
+
+Journal des modifications 1.0.1.0
+
+- Mise à jour de certaines parties du code.
+- Ajout de langues supplémentaires.
+- Modification de la valeur du multiplicateur par défaut de 1.5 à 2.
 ]]>
 </fr>
 	</description>
