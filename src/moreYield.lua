@@ -134,7 +134,7 @@ function moreYield:Init()
 						defwindrowLiters = oldwindrowLiters	
 					end
 					
-					local newwindrowLiters = math.abs(tonumber(string.format("%.6f", defwindrowLiters * moreYield.settings.Multiplier)))
+					local newwindrowLiters = math.abs(tonumber(string.format("%.6f", defwindrowLiters + moreYield.settings.Multiplier)))
 					
 					g_fruitTypeManager.fruitTypes[index].windrowLiterPerSqm = newwindrowLiters
 				
