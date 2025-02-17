@@ -4,7 +4,7 @@
 
 This mod allows you to change in **Farming Simulator 2025 (FS25)** the harvesting yield per liter, so you can have more yield while you're harvesting, this is also working while you are working in game missions, also you have the opportunity to adjust the multiplier under game `General Settings` directly, just make sure that if you change the any setting under the game settings menu then you have make a new save game to push the settings from the game into a file named `moreYield.xml` that is being created under `modSettings` in your `<drive>:\Documents\My Games\FarmingSimulator2025\` game folder.
 
-Supports `25` Crops: `WHEAT BARLEY CANOLA OAT MAIZE SUNFLOWER SOYBEAN COTTON SORGHUM GRAPE OLIVE POPLAR GRASS MEADOW RICE RICELONGGRAIN PEA POTATO CARROT PARSNIP BEETROOT SPINACH GREENBEAN SUGARBEET SUGARCANE SPELT RYE TRITICALE SUMMERWHEAT SUMMERBARLEY HEMP LINSEED ALFALFA BEANS PEAS`<br></br>
+Supports `35` Crops: `WHEAT BARLEY CANOLA OAT MAIZE SUNFLOWER SOYBEAN COTTON SORGHUM GRAPE OLIVE POPLAR GRASS MEADOW RICE RICELONGGRAIN PEA POTATO CARROT PARSNIP BEETROOT SPINACH GREENBEAN SUGARBEET SUGARCANE SPELT RYE TRITICALE SUMMERWHEAT SUMMERBARLEY HEMP LINSEED ALFALFA BEANS PEAS`<br></br>
 > [!CAUTION]
 > This mod does NOT working (for now) under multiplayer!
 
