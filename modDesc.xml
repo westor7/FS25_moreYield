@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="95">
+<modDesc descVersion="104">
 	<author>westor</author>
 	<version>1.0.2.0</version>
 	<title>
@@ -196,9 +196,9 @@ Journal des modifications 1.0.1.0
 </fr>
 	</description>
 
-	<iconFilename>icon_moreYield.png</iconFilename>
+	<iconFilename>icon_moreYield.dds</iconFilename>
 	
-	<multiplayer supported="true"/>
+	<multiplayer supported="false"/>
 	
 	<l10n filenamePrefix="translations/translation"/>
 	
