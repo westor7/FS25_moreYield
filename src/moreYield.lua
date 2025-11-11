@@ -6,8 +6,6 @@
 
 moreYield = {}
 moreYield.settings = {}
-moreYield.name = g_currentModName or "FS25_moreYield"
-moreYield.version = "1.0.2.0"
 moreYield.initUI = false
 
 function moreYield.prerequisitesPresent(specializations)
@@ -15,14 +13,6 @@ function moreYield.prerequisitesPresent(specializations)
 end
 
 function moreYield:loadMap()
-	if g_dedicatedServer or g_currentMission.missionDynamicInfo.isMultiplayer or not g_server or not g_currentMission:getIsServer() then
-		Logging.error("[%s]: Error, Cannot use this mod because this mod is working only for singleplayer!", moreYield.name)
-
-		return
-	end
-			
-	Logging.info("[%s]: Initializing mod v%s (c) 2025 by westor.", moreYield.name, moreYield.version)
-		
 	InGameMenu.onMenuOpened = Utils.appendedFunction(InGameMenu.onMenuOpened, moreYield.initUi)
 	
 	FSBaseMission.saveSavegame = Utils.appendedFunction(FSBaseMission.saveSavegame, moreYield.saveSettings)
@@ -30,8 +20,6 @@ function moreYield:loadMap()
 	moreYield:loadSettings()
 
 	moreYield:Init()
-	
-	Logging.info("[%s]: End of mod initalization.", moreYield.name)
 end
 
 function moreYield:mouseEvent(posX, posY, isDown, isUp, button)
@@ -93,8 +81,6 @@ function moreYield:Init()
 			"PEAS"
 		}
 
-	Logging.info("[%s]: Start of crops yield updates. - Total: %s", moreYield.name, table.getn(types))
-
 	for index, validFruit in pairs(g_fruitTypeManager.fruitTypes) do
 
 		for _, fruitTypeName in ipairs(types) do
@@ -118,8 +104,6 @@ function moreYield:Init()
 				
 				g_fruitTypeManager.fruitTypes[index].literPerSqm = newLiters
 				
-				Logging.info("[%s]: %s crop yield literpersqm status updated. - Default: %s - Old: %s - New: %s - Old Multiplier: %s - New Multiplier: %s", moreYield.name, fruitTypeName, defLiters, oldLiters, newLiters, OldMultiplier, moreYield.settings.Multiplier)
-				
 				local supportWindrow = g_fruitTypeManager.fruitTypes[index].hasWindrow
 				local windrowName = g_fruitTypeManager.fruitTypes[index].windrowName
 				local defwindrowLiters = g_fruitTypeManager.fruitTypes[index].defaultwindrowLiterPerSqm
@@ -137,70 +121,42 @@ function moreYield:Init()
 					local newwindrowLiters = math.abs(tonumber(string.format("%.6f", defwindrowLiters + moreYield.settings.Multiplier)))
 					
 					g_fruitTypeManager.fruitTypes[index].windrowLiterPerSqm = newwindrowLiters
-				
-					Logging.info("[%s]: %s crop yield windrowliterpersqm status updated. - Windrow: %s - Default: %s - Old: %s - New: %s - Old Multiplier: %s - New Multiplier: %s", moreYield.name, fruitTypeName, windrowName, defwindrowLiters, oldwindrowLiters, newwindrowLiters, OldMultiplier, moreYield.settings.Multiplier)
 				end
 				
 				updated = updated + 1
 			end
-			
 		end
-
 	end
-
-	Logging.info("[%s]: End of crops yield updates. - Updated: %s - Total: %s", moreYield.name, updated, table.getn(types))
-
 end
 
 function moreYield:saveSettings()
-	Logging.info("[%s]: Trying to save settings..", moreYield.name)
-
 	local xmlPath = getUserProfileAppPath() .. "modSettings" .. "/" .. "moreYield.xml"
 	local xmlFile = createXMLFile("moreYield", xmlPath, "moreYield")
-	
-	Logging.info("[%s]: Saving settings to '%s' ..", moreYield.name, xmlPath)
 	
 	setXMLFloat(xmlFile, "moreYield.yield#Multiplier",moreYield.settings.Multiplier)
 	
 	saveXMLFile(xmlFile)
 	delete(xmlFile)
-	
-	Logging.info("[%s]: Settings have been saved.", moreYield.name)
 end
 
 function moreYield:loadSettings()
-	Logging.info("[%s]: Trying to load settings..", moreYield.name)
-	
 	local xmlPath = getUserProfileAppPath() .. "modSettings" .. "/" .. "moreYield.xml"
 	
-	Logging.info("[%s]: Loading settings from '%s' ..", moreYield.name, xmlPath)
-	
 	if fileExists(xmlPath) then
-		Logging.info("[%s]: File founded, loading now the settings..", moreYield.name)
-		
 		local xmlFile = loadXMLFile("moreYield", xmlPath)
 		
 		if xmlFile == 0 then
-			Logging.warning("[%s]: Could not read the data from XML file, maybe the XML file is empty or corrupted, using the default!", moreYield.name)
-			
 			moreYield:defSettings()
-			
-			Logging.info("[%s]: Settings have been loaded.", moreYield.name)
-			
 			return
 		end
 
 		local Multiplier = Utils.getNoNil( getXMLFloat(xmlFile, "moreYield.yield#Multiplier"), 2);
 
 		if Multiplier < 1.5 then
-			Logging.warning("[%s]: Could not retrieve the correct 'Multiplier' digital number value because it is lower than '1.5' from the XML file or it is corrupted, using the default!", moreYield.name)
-			
 			Multiplier = 2
 		end
 		
 		if Multiplier > 100 then
-			Logging.warning("[%s]: Could not retrieve the correct 'Multiplier' digital number value because it is higher than '100' from the XML file or it is corrupted, using the default!", moreYield.name)
-			
 			Multiplier = 2
 		end
 		
@@ -208,12 +164,8 @@ function moreYield:loadSettings()
 		moreYield.settings.OldMultiplier = Multiplier
 		
 		delete(xmlFile)
-					
-		Logging.info("[%s]: Settings have been loaded.", moreYield.name)
 	else
 		moreYield:defSettings()
-
-		Logging.info("[%s]: NOT any file founded!, using the default settings.", moreYield.name)
 	end
 end
 
