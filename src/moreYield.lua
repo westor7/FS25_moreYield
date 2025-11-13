@@ -6,20 +6,22 @@
 
 moreYield = {}
 moreYield.settings = {}
-moreYield.initUI = false
 
 function moreYield.prerequisitesPresent(specializations)
 	return true
 end
 
 function moreYield:loadMap()
-	InGameMenu.onMenuOpened = Utils.appendedFunction(InGameMenu.onMenuOpened, moreYield.initUi)
-	
-	FSBaseMission.saveSavegame = Utils.appendedFunction(FSBaseMission.saveSavegame, moreYield.saveSettings)
-	
-	moreYield:loadSettings()
+    moreYield:loadSettings()
 
-	moreYield:Init()
+    moreYield:Init()
+
+    g_currentMission.moreYieldSettings = moreYieldSettings.new()
+    g_currentMission.moreYieldSettings.Multiplier = moreYield.settings.Multiplier
+    g_currentMission.moreYieldSettings.OldMultiplier = moreYield.settings.OldMultiplier
+
+    moreYield.ui = moreYieldUI.new()
+    moreYield.ui:injectUiSettings(g_currentMission.moreYieldSettings)
 end
 
 function moreYield:mouseEvent(posX, posY, isDown, isUp, button)
@@ -166,16 +168,6 @@ function moreYield:loadSettings()
 		delete(xmlFile)
 	else
 		moreYield:defSettings()
-	end
-end
-
-function moreYield:initUi()
-	if not moreYield.initUI then
-		local uiSettingsmoreYield = moreYieldUI.new(moreYield.settings)
-		
-		uiSettingsmoreYield:registerSettings()
-		
-		moreYield.initUI = true
 	end
 end
 
