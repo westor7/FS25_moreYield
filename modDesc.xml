@@ -204,6 +204,7 @@ Journal des modifications 1.0.1.0
 	
 	<extraSourceFiles>
 		<sourceFile filename="src/lib/UIHelper.lua" />
+		<sourceFile filename="src/moreYieldSettings.lua" />
 		<sourceFile filename="src/moreYieldUI.lua" />
 		<sourceFile filename="src/moreYield.lua"/>
 	</extraSourceFiles>
