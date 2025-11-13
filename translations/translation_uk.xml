@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Більше прибутку - Налаштування"/>
 		<text name = "myi_Multiplier_short" 		text = "Мультиплікатор врожайності"/>
 		<text name = "myi_Multiplier_long" 			text = "Виберіть число множника, більше число отримує більший прибуток."/>
-		<text name = "myi_blink_warn" 				text = "Попередження: оновлено коефіцієнт урожайності."/>
 	</texts>
 </l10n>

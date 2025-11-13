@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Więcej wydajności - Ustawienia"/>
 		<text name = "myi_Multiplier_short" 		text = "Mnożnik plonu zbiorów"/>
 		<text name = "myi_Multiplier_long" 			text = "Wybierz liczbę mnożnika – im wyższa liczba, tym większy zysk."/>
-		<text name = "myi_blink_warn" 				text = "Ostrzeżenie: Zaktualizowano mnożnik plonu zbiorów."/>
 	</texts>
 </l10n>

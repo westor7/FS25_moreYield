@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Mere udbytte - Indstillinger"/>
 		<text name = "myi_Multiplier_short" 		text = "Høstudbyttemultiplikator"/>
 		<text name = "myi_Multiplier_long" 			text = "Vælg dit multiplikatortal, højere tal får mere udbytte."/>
-		<text name = "myi_blink_warn" 				text = "Advarsel: Høstudbyttemultiplikatoren er blevet opdateret."/>
 	</texts>
 </l10n>

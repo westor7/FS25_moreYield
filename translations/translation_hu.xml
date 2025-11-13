@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Több hozam – Beállítások"/>
 		<text name = "myi_Multiplier_short" 		text = "Betakarítási hozamszorzó"/>
 		<text name = "myi_Multiplier_long" 			text = "Válassza ki a szorzószámot, a nagyobb szám nagyobb hozamot eredményez."/>
-		<text name = "myi_blink_warn" 				text = "Figyelmeztetés: A betakarítási hozamszorzó frissítve lett."/>
 	</texts>
 </l10n>

@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Mer avkastning - Inställningar"/>
 		<text name = "myi_Multiplier_short" 		text = "Skördeavkastningsmultiplikator"/>
 		<text name = "myi_Multiplier_long" 			text = "Välj ditt multiplikatornummer, högre nummer ger mer avkastning."/>
-		<text name = "myi_blink_warn" 				text = "Varning: Skördeavkastningsmultiplikatorn har uppdaterats."/>
 	</texts>
 </l10n>

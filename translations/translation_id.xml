@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Hasil Lebih Banyak - Pengaturan"/>
 		<text name = "myi_Multiplier_short" 		text = "Pengganda Hasil Panen"/>
 		<text name = "myi_Multiplier_long" 			text = "Pilih angka pengali Anda, angka yang lebih tinggi akan memberikan hasil lebih banyak."/>
-		<text name = "myi_blink_warn" 				text = "Peringatan: Pengganda hasil panen telah diperbarui."/>
 	</texts>
 </l10n>

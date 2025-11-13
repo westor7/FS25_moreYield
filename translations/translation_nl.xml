@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Meer opbrengst - Instellingen"/>
 		<text name = "myi_Multiplier_short" 		text = "Oogstopbrengstvermenigvuldiger"/>
 		<text name = "myi_Multiplier_long" 			text = "Selecteer uw vermenigvuldigingsgetal. Hoe hoger het getal, hoe meer opbrengst."/>
-		<text name = "myi_blink_warn" 				text = "Waarschuwing: De vermenigvuldigingsfactor voor de oogstopbrengst is bijgewerkt."/>
 	</texts>
 </l10n>

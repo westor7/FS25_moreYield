@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Muioc'h a rent - Arventennoù"/>
 		<text name = "myi_Multiplier_short" 		text = "Lieskementer ar gounezerezh"/>
 		<text name = "myi_Multiplier_long" 			text = "Dibabit ho niver lieskementer, un niver uheloc'h a ro muioc'h a rentañ-kont."/>
-		<text name = "myi_blink_warn" 				text = "Diwallit : hizivaet eo bet lieskementer ar gounezerezh."/>
 	</texts>
 </l10n>
