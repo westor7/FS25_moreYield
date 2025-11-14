@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Mer avkastning - Innstillinger"/>
 		<text name = "myi_Multiplier_short" 		text = "Innhøstingsutbyttemultiplikator"/>
 		<text name = "myi_Multiplier_long" 			text = "Velg multiplikatornummeret ditt, høyere tall gir mer utbytte."/>
-		<text name = "myi_blink_warn" 				text = "Advarsel: Innhøstingsutbyttemultiplikatoren er oppdatert."/>
 	</texts>
 </l10n>

@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "More Yield - Einstellungen"/>
 		<text name = "myi_Multiplier_short" 		text = "Ernteertragsmultiplikator"/>
 		<text name = "myi_Multiplier_long" 			text = "Wählen Sie Ihre Multiplikatorzahl, eine höhere Zahl bringt mehr Ertrag."/>
-		<text name = "myi_blink_warn" 				text = "Warnung: Der Ernteertragsmultiplikator wurde aktualisiert."/>
 	</texts>
 </l10n>

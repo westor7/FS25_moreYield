@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Lisää tuottoa - Asetukset"/>
 		<text name = "myi_Multiplier_short" 		text = "Sadonkorjuun tuottokerroin"/>
 		<text name = "myi_Multiplier_long" 			text = "Valitse kerroinnumerosi, suurempi luku tuottaa enemmän tuottoa."/>
-		<text name = "myi_blink_warn" 				text = "Varoitus: Sadonkorjuukerroin on päivitetty."/>
 	</texts>
 </l10n>

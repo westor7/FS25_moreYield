@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Thêm năng suất - Cài đặt"/>
 		<text name = "myi_Multiplier_short" 		text = "Hệ số nhân năng suất thu hoạch"/>
 		<text name = "myi_Multiplier_long" 			text = "Chọn số nhân của bạn, số càng cao thì lợi nhuận càng lớn."/>
-		<text name = "myi_blink_warn" 				text = "Cảnh báo: Hệ số nhân sản lượng thu hoạch đã được cập nhật."/>
 	</texts>
 </l10n>

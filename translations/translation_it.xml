@@ -5,6 +5,5 @@
 		<text name = "myi_setting_title" 			text = "Più rendimento - Impostazioni"/>
 		<text name = "myi_Multiplier_short" 		text = "Moltiplicatore di resa della raccolta"/>
 		<text name = "myi_Multiplier_long" 			text = "Seleziona il numero del moltiplicatore: più alto è il numero, maggiore sarà il rendimento."/>
-		<text name = "myi_blink_warn" 				text = "Attenzione: il moltiplicatore della resa del raccolto è stato aggiornato."/>
 	</texts>
 </l10n>
