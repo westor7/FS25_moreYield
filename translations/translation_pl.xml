@@ -4,7 +4,8 @@
 	<texts>
 		<text name = "myi_setting_title" 			text = "Większy plon - Ustawienia"/>
 		<text name = "myi_Multiplier_short" 		text = "Mnożnik plonów ze zbiorów"/>
-		<text name = "myi_Multiplier_long" 			text = "Wybierz wartość mnożnika – im wyższa liczba, tym większy plon."/>
+		<text name = "myi_Multiplier_long" 			text = "Wybierz wartość mnożnika - im wyższa liczba, tym większy plon."/>
 	</texts>
 </l10n>
+
 
