@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <l10n>
-	<translationContributors/>
-	<texts>
-		<text name = "myi_setting_title" 			text = "More Yield - Paramètres"/>
-		<text name = "myi_Multiplier_short" 		text = "Multiplicateur de rendement de récolte"/>
-		<text name = "myi_Multiplier_long" 			text = "Sélectionnez votre numéro multiplicateur, un nombre plus élevé donne plus de rendement."/>
-		<text name = "myi_blink_warn" 				text = "Avertissement : le multiplicateur de rendement de récolte a été mis à jour."/>
+	<translationContributors>Google translate</translationContributors>
+	<texts>	
+		<text name = "myi_setting_title" 				text = "Plus De Rendement - Paramètres"/>
+		<text name = "myi_CropMultiplier_short" 		text = "Multiplicateur de rendement des cultures de récolte"/>
+		<text name = "myi_CropMultiplier_long" 			text = "Sélectionnez votre numéro multiplicateur ; plus le nombre est élevé, plus le rendement est important. Choisissez `1` si vous souhaitez utiliser le multiplicateur par défaut du jeu de base."/>
+		<text name = "myi_WindrowMultiplier_short" 		text = "Multiplicateur de rendement des andains de récolte"/>
+		<text name = "myi_WindrowMultiplier_long" 		text = "Sélectionnez votre numéro multiplicateur ; plus le nombre est élevé, plus l’andain est important. Choisissez `1` si vous souhaitez utiliser le multiplicateur par défaut du jeu de base."/>
+		<text name = "myi_crop_blink_warn" 				text = "Avertissement: Le multiplicateur de rendement des récoltes a été mis à jour."/>
+		<text name = "myi_windrow_blink_warn" 			text = "Avertissement: Le multiplicateur de rendement de la récolte en andains a été mis à jour."/>
 	</texts>
 </l10n>

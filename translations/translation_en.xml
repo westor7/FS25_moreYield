@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <l10n>
-	<translationContributors/>
+	<translationContributors>westor</translationContributors>
 	<texts>
-		<text name = "myi_setting_title" 			text = "More Yield - Settings"/>
-		<text name = "myi_Multiplier_short" 		text = "Harvesting Yield Multiplier"/>
-		<text name = "myi_Multiplier_long" 			text = "Select your multiplier number, higher number gets more yield."/>
-		<text name = "myi_blink_warn" 				text = "Warning: The harvesting yield multiplier has been updated."/>
+		<text name = "myi_setting_title" 				text = "More Yield - Settings"/>
+		<text name = "myi_CropMultiplier_short" 		text = "Harvesting Crop Yield Multiplier"/>
+		<text name = "myi_CropMultiplier_long" 			text = "Select your multiplier number, higher number gets more yield, choose `1` if you want the default base game multiplier."/>
+		<text name = "myi_WindrowMultiplier_short" 		text = "Harvesting Crop Windrow Yield Multiplier"/>
+		<text name = "myi_WindrowMultiplier_long" 		text = "Select your multiplier number, higher number gets more windrow, choose `1` if you want the default base game multiplier."/>
+		<text name = "myi_crop_blink_warn" 				text = "Warning: The crop harvesting yield multiplier has been updated."/>
+		<text name = "myi_windrow_blink_warn" 			text = "Warning: The windrow harvesting yield multiplier has been updated."/>
 	</texts>
 </l10n>

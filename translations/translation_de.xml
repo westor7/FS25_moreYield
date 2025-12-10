@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <l10n>
-	<translationContributors/>
+	<translationContributors>Google translate</translationContributors>
 	<texts>
-		<text name = "myi_setting_title" 			text = "More Yield - Einstellungen"/>
-		<text name = "myi_Multiplier_short" 		text = "Ernteertragsmultiplikator"/>
-		<text name = "myi_Multiplier_long" 			text = "Wählen Sie Ihre Multiplikatorzahl, eine höhere Zahl bringt mehr Ertrag."/>
-		<text name = "myi_blink_warn" 				text = "Warnung: Der Ernteertragsmultiplikator wurde aktualisiert."/>
+		<text name = "myi_setting_title" 				text = "Mehr Ertrag - Einstellungen"/>
+		<text name = "myi_CropMultiplier_short" 		text = "Ernteertragsmultiplikator"/>
+		<text name = "myi_CropMultiplier_long" 			text = "Wählen Sie Ihren Multiplikatorwert. Je höher der Wert, desto höher der Ertrag. Wählen Sie `1`, wenn Sie den Standardmultiplikator des Basisspiels verwenden möchten."/>
+		<text name = "myi_WindrowMultiplier_short" 		text = "Ernteschwad-Ertragsmultiplikator"/>
+		<text name = "myi_WindrowMultiplier_long" 		text = "Wählen Sie Ihren Multiplikatorwert. Je höher der Wert, desto größer die Gewinnspanne. Wählen Sie `1`, wenn Sie den Standardmultiplikator des Basisspiels verwenden möchten."/>
+		<text name = "myi_crop_blink_warn" 				text = "Warnung: Der Ertragsmultiplikator für die Ernte wurde aktualisiert."/>
+		<text name = "myi_windrow_blink_warn" 			text = "Warnung: Der Ertragsmultiplikator für die Schwadenernte wurde aktualisiert."/>
 	</texts>
 </l10n>

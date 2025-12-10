@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="95">
-	<author>westor</author>
-	<version>1.0.2.0</version>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="105" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://validation.gdn.giants-software.com/xml/fs25/modDesc.xsd">
 	<title>
 		<en>More Yield</en>
 		<de>Mehr Ertrag</de>
@@ -9,52 +7,41 @@
 	</title>
 	<description>
 <en><![CDATA[
-More Yield is a mod that increase your harvesting yield in real time of some base game crops.
+More Yield is a mod that increase your harvesting yield and your windrow harvesting yield
+in real time from all of your map base game and non-base game crops (e.g: WHEAT,RYE) and all your
+crops that supporting windrow (e.g: STRAW,FLAXSTRAW).
 
-You can adjust the multiplier under Game Settings (Press ESC button) so you can
-increase or decrease the value in your desire. (default: 2 - min: 1.5 - max: 100)
+You can adjust the multipliers under `Game Settings` (Press `ESC` button) after map loading so you can
+increase or decrease the values in your desire.
+
+Crop harvesting yield (Default: 1.5 - Min: 1 - Max: 100)
+Crop windrow harvesting yield (Default: 1.5 - Min: 1 - Max: 100)
+
+Mod Examples:
+
+1) While harvesting `WHEAT` that by default has `0.89 literPerSqm` value if you have `1.5` set in
+harvesting crop yield multiplier then the mod will replace the default value to `0.89 * 1.5` to set `1.33 literPerSqm` value.
+
+2) While harvesting `WHEAT` crop that supports windrow (STRAW) and by default has `3.68 windrowLiterPerSqm` value
+if you have `1.5` set in harvesting crop windrow yield multiplier then the mod will replace the default with
+`3.68 * 1.5` to set `5.52 windrowLiterPerSqm` value.
 
 westor7 @ Discord or https://github.com/westor7/FS25_moreYield for any suggestions/problems.
 
-NOTE: This mod does NOT working on multiplayer!
+Changelog 1.1.0.0
 
-Supported crops:
-
-- WHEAT
-- BARLEY
-- CANOLA
-- OAT
-- MAIZE
-- SUNFLOWER
-- SOYBEAN
-- COTTON
-- SORGHUM
-- GRAPE
-- OLIVE
-- POPLAR
-- GRASS
-- MEADOW
-- RICE
-- RICELONGGRAIN
-- PEA
-- POTATO
-- CARROT
-- PARSNIP
-- BEETROOT
-- SPINACH
-- GREENBEAN
-- SUGARBEET
-- SUGARCANE
-- SPELT
-- RYE
-- TRITICALE
-- SUMMERWHEAT
-- SUMMERBARLEY
-- HEMP
-- LINSEED
-- ALFALFA
-- BEANS
-- PEAS
+- Added fully multiplayer support, now the mod sync perfectly between the server and clients. 
+- Added a better way to scan all the map FruitTypes on loading instead of using a custom FruitTypes list.
+- Added a new option under settings to be able to adjust the windrow while harvesting the crop.
+- Changed the default multiplier from `2` to `1.5` value.
+- Changed the raising multiplier under settings from `0.5` to `0.1` value per click.
+- Changed the saving/loading location, now save/load the file to/from the savegame folder.
+- Moved the settings page from `GENERAL SETTINGS` to `GAME SETTINGS` page instead.
+- Fixed a collision bug with `Additional Game Settings` mod (github issue #1).
+- Improved some LUA code parts.
+- Updated Polish (PL) language.
+- Updated the modIcon image.
+- Updated the modDesc version.
 
 Changelog 1.0.2.0
 
@@ -72,138 +59,119 @@ Changelog 1.0.1.0
 </en>
 <de>
 <![CDATA[
-Mehr Ertrag ist ein Mod, der Ihren Ernteertrag einiger Basisspielpflanzen in Echtzeit erhöht.
+Mehr Ertrag ist eine Mod, die deinen Ernteertrag und den Ertrag deiner Schwadernte in Echtzeit erhöht. Dies gilt für alle Basis- und Nicht-Basis-Spielfrüchte (z. B. Weizen, Roggen) und alle anderen Feldfrüchte, die sich für die Schwadernte eignen (z. B. Stroh, Flachsstroh).
 
-Sie können den Multiplikator unter den Spieleinstellungen anpassen (ESC-Taste drücken), sodass Sie
-den Wert nach Wunsch erhöhen oder verringern können. (Standard: 2 – min.: 1.5 – max.: 100)
+Du kannst die Multiplikatoren nach dem Laden der Karte unter `Spieleinstellungen` (drücke die `ESC`-Taste) anpassen, um die Werte nach Belieben zu erhöhen oder zu verringern.
 
-westor7 @ Discord oder https://github.com/westor7/FS25_moreYield für alle Vorschläge/Probleme.
+Ernteertrag (Standard: 1.5 – Min: 1 – Max: 100)
+Ertrag bei Schwadernte (Standard: 1.5 – Min: 1 – Max: 100)
 
-HINWEIS: Dieser Mod funktioniert NICHT im Mehrspielermodus!
+Mod-Beispiele:
 
-Unterstützte Pflanzen:
+1) Bei der Ernte von WEIZEN (Standardwert: 0.89 Liter/m²) wird der Standardwert durch 0.89 * 1.5 ersetzt, wenn der Ertragsmultiplikator für die Ernte auf 1.33 Liter/m² eingestellt ist.
 
-- WHEAT
-- BARLEY
-- CANOLA
-- OAT
-- MAIZE
-- SUNFLOWER
-- SOYBEAN
-- COTTON
-- SORGHUM
-- GRAPE
-- OLIVE
-- POPLAR
-- GRASS
-- MEADOW
-- RICE
-- RICELONGGRAIN
-- PEA
-- POTATO
-- CARROT
-- PARSNIP
-- BEETROOT
-- SPINACH
-- GREENBEAN
-- SUGARBEET
-- SUGARCANE
-- SPELT
-- RYE
-- TRITICALE
-- SUMMERWHEAT
-- SUMMERBARLEY
-- HEMP
-- LINSEED
-- ALFALFA
-- BEANS
-- PEAS
+2) Bei der Ernte von WEIZEN (Stroh), das Schwadernte unterstützt und standardmäßig einen Ertragswert von 3.68 Litern/m² aufweist, wird der Standardwert durch 3.52 Liter/m² ersetzt, wenn der Ertragsmultiplikator für die Schwadernte auf 1.5 eingestellt ist.
+
+
+3.68 * 1.5 wird der Wert durch 5.52 Liter/m² ersetzt.
+
+Bei Fragen oder Problemen wende dich bitte an westor7 auf Discord oder unter https://github.com/westor7/FS25_moreYield.
+
+Änderungsprotokoll 1.1.0.0
+
+- Vollständige Multiplayer-Unterstützung hinzugefügt. Die Mod synchronisiert sich nun perfekt zwischen Server und Clients.
+- Verbesserte Methode zum Scannen aller Fruchtarten auf der Karte beim Laden hinzugefügt (anstatt einer benutzerdefinierten Fruchtartenliste).
+- Neue Option in den Einstellungen hinzugefügt, um die Schwaden während der Ernte anzupassen.
+- Standardmultiplikator von 2 auf 1,5 geändert.
+- Multiplikator für das Anhäufen von Erntegut pro Klick in den Einstellungen von 0,5 auf 0,1 geändert.
+- Speicherort für Spielstände geändert. Die Dateien werden nun im Speicherordner gespeichert bzw. von dort geladen.
+- Einstellungsseite von „Allgemeine Einstellungen“ nach „Spieleinstellungen“ verschoben.
+- Ein Kollisionsfehler mit der Mod „Zusätzliche Spieleinstellungen“ wurde behoben (GitHub-Issue #1).
+- Teile des LUA-Codes wurden verbessert.
+- Die polnische Sprachunterstützung (PL) wurde aktualisiert.
+- Das Mod-Symbol wurde aktualisiert.
+- Die Mod-Beschreibung wurde aktualisiert.
 
 Änderungsprotokoll 1.0.2.0
 
-- Unterstützung für Kartenfrüchte 'NF Marsch 4fach' hinzugefügt (+10 weitere benutzerdefinierte Früchte).
-- Unterstützung zum Ändern von Stroh und Schwaden der Früchte hinzugefügt, falls unterstützt.
-– Die modDesc-Version wurde aktualisiert.
+- Unterstützung für die Feldfrüchte der Karte „NF Marsch 4fach“ hinzugefügt (+10 weitere benutzerdefinierte Feldfrüchte).
+- Die Möglichkeit, das Stroh der Feldfrüchte zu wechseln, wurde hinzugefügt, sofern dies unterstützt wird.
+- Die Mod-Beschreibung wurde aktualisiert.
 
 Änderungsprotokoll 1.0.1.0
 
-- Einige Codeteile aktualisiert.
+- Teile des Codes wurden aktualisiert.
 - Weitere Sprachen hinzugefügt.
-- Den Standardmultiplikatorwert von 1.5 auf 2 geändert.
+- Der Standardwert des Multiplikators wurde von 1,5 auf 2 geändert.
+
 ]]>
 </de>
 <fr>
 <![CDATA[
-Plus De Rendement est un mod qui augmente votre rendement de récolte en temps réel de certaines cultures du jeu de base.
+Plus De Rendement est un mod qui augmente en temps réel le rendement de vos récoltes, y compris celles en andains, pour toutes les cultures de base et celles qui ne le sont pas (par exemple : blé, seigle) ainsi que pour toutes les cultures compatibles avec l'andainage (par exemple : paille, lin).
 
-Vous pouvez ajuster le multiplicateur dans les paramètres du jeu (appuyez sur le bouton ESC) afin de pouvoir
-augmenter ou diminuer la valeur à votre guise. (par défaut: 2 - min: 1.5 - max: 100)
+Après le chargement de la carte, vous pouvez ajuster les multiplicateurs dans les « Paramètres du jeu » (touche « Échap ») afin de les modifier à votre guise.
 
-westor7 @ Discord ou https://github.com/westor7/FS25_moreYield pour toute suggestion/problème.
+Rendement de la récolte (par défaut : 1.5 - min : 1 - max : 100)
 
-REMARQUE: ce mod ne fonctionne PAS en multijoueur!
+Rendement de la récolte des andains (par défaut : 1.5 - min : 1 - max : 100)
 
-Cultures prises en charge:
+Exemples de modification :
 
-- WHEAT
-- BARLEY
-- CANOLA
-- OAT
-- MAIZE
-- SUNFLOWER
-- SOYBEAN
-- COTTON
-- SORGHUM
-- GRAPE
-- OLIVE
-- POPLAR
-- GRASS
-- MEADOW
-- RICE
-- RICELONGGRAIN
-- PEA
-- POTATO
-- CARROT
-- PARSNIP
-- BEETROOT
-- SPINACH
-- GREENBEAN
-- SUGARBEET
-- SUGARCANE
-- SPELT
-- RYE
-- TRITICALE
-- SUMMERWHEAT
-- SUMMERBARLEY
-- HEMP
-- LINSEED
-- ALFALFA
-- BEANS
-- PEAS
+1) Lors de la récolte du BLÉ (rendement par défaut : 0.89 litre/m²), si vous avez défini un multiplicateur de rendement de 1.5, le mod remplacera la valeur par défaut par 0.89 × 1.5, soit 1.33 litre/m².
+
+2) Lors de la récolte du blé (culture supportant l'andainage, paille) et dont la valeur par défaut est de 3.68 litres par mètre carré,
+
+si vous avez défini 1.5 comme multiplicateur de rendement pour l'andainage, le mod remplacera la valeur par défaut par
+
+3.68 * 1.5 pour définir la valeur de 5.52 litres par mètre carré.
+
+Pour toute suggestion ou problème, contactez westor7 sur Discord ou via https://github.com/westor7/FS25_moreYield.
+
+Journal des modifications 1.1.0.0
+
+- Ajout d'une compatibilité multijoueur complète : le mod se synchronise désormais parfaitement entre le serveur et les clients.
+- Amélioration de la méthode de scan de tous les types de fruits de la carte au chargement, au lieu d'utiliser une liste personnalisée.
+- Ajout d'une nouvelle option dans les paramètres permettant d'ajuster l'andainage pendant la récolte. - Multiplicateur par défaut modifié : de 2 à 1,5.
+- Multiplicateur de progression modifié dans les paramètres : de 0,5 à 0,1 par clic.
+- Emplacement de sauvegarde/chargement modifié : sauvegardez/chargez désormais depuis/vers le dossier de sauvegarde de la partie.
+- La page des paramètres a été déplacée de « PARAMÈTRES GÉNÉRAUX » vers « PARAMÈTRES DU JEU ».
+- Correction d'un bug de collision avec le mod « Additional Game Settings » (problème GitHub n° 1).
+- Amélioration de certaines parties du code LUA.
+- Mise à jour de la langue polonaise (PL).
+- Mise à jour de l'icône du mod.
+- Mise à jour de la version du modDesc.
 
 Journal des modifications 1.0.2.0
 
-- Ajout de la prise en charge des cultures de carte 'NF Marsch 4fach' (+ 10 cultures personnalisées supplémentaires).
-- Ajout de la prise en charge de la modification de la paille de l'andain de la culture, si prise en charge.
-- Mise à jour de la version modDesc.
+- Ajout de la prise en charge des cultures de la carte « NF Marsch 4fach » (+10 cultures personnalisées supplémentaires).
+- Ajout de la possibilité de modifier la température actuelle et la paille en andains de la culture, si cette fonctionnalité est prise en charge.
+- Mise à jour de la version du modDesc.
 
 Journal des modifications 1.0.1.0
 
 - Mise à jour de certaines parties du code.
-- Ajout de langues supplémentaires.
-- Modification de la valeur du multiplicateur par défaut de 1.5 à 2.
+- Ajout de langues.
+- Modification de la valeur par défaut du multiplicateur : de 1,5 à 2.
+
 ]]>
 </fr>
 	</description>
 
-	<iconFilename>icon_moreYield.png</iconFilename>
+	<author>westor</author>
+	<version>1.1.0.0</version>
+	<contributors>lisekv1, Timmeey86, GMNGjoy</contributors>
+	
+	<iconFilename>icon_moreYield.dds</iconFilename>
 	
 	<multiplayer supported="true"/>
 	
 	<l10n filenamePrefix="translations/translation"/>
 	
 	<extraSourceFiles>
-		<sourceFile filename="src/lib/UIHelper.lua" />
+		<sourceFile filename="src/lib/UIHelper_GameSettings.lua" />
+		<sourceFile filename="src/moreYieldSettingsChangeEvent.lua" />
+		<sourceFile filename="src/moreYieldSettings.lua" />
 		<sourceFile filename="src/moreYieldUI.lua" />
 		<sourceFile filename="src/moreYield.lua"/>
 	</extraSourceFiles>

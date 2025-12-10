@@ -5,33 +5,42 @@
 -- Copyright (c) 2025 westor
 
 moreYield = {}
-moreYield.settings = {}
-moreYield.name = g_currentModName or "FS25_moreYield"
-moreYield.version = "1.0.2.0"
-moreYield.initUI = false
+moreYield.settings = nil
+moreYield.settings = moreYieldSettings.new()
+local moreYieldUi = moreYieldUI.new(moreYield.settings)
 
-function moreYield.prerequisitesPresent(specializations)
-	return true
+moreYield.other = {
+    name = "FS25_moreYield",
+    author = "westor",
+    version = "1.1.0.0",
+    created = "03/02/2025",
+    updated = "05/12/2025",
+    debug = true 
+	-- Set this to "true" to enable debugging messages, is "false" by default to avoid spam in log.txt file.
+	-- This is recommended to enable only when there is a problem in the mod.
+}
+
+function moreYield.logInfo(infoMessage, ...)	
+	if (moreYield.other.debug == true) then Logging.info(string.format("[%s]: " .. infoMessage, moreYield.other.name, ...)) end
 end
 
-function moreYield:loadMap()
-	if g_dedicatedServer or g_currentMission.missionDynamicInfo.isMultiplayer or not g_server or not g_currentMission:getIsServer() then
-		Logging.error("[%s]: Error, Cannot use this mod because this mod is working only for singleplayer!", moreYield.name)
+function moreYield.logWarn(warningMessage, ...)
+	if (moreYield.other.debug == true) then Logging.warning(string.format("[%s]: " .. warningMessage, moreYield.other.name, ...)) end
+end
 
-		return
-	end
-			
-	Logging.info("[%s]: Initializing mod v%s (c) 2025 by westor.", moreYield.name, moreYield.version)
-		
-	InGameMenu.onMenuOpened = Utils.appendedFunction(InGameMenu.onMenuOpened, moreYield.initUi)
-	
-	FSBaseMission.saveSavegame = Utils.appendedFunction(FSBaseMission.saveSavegame, moreYield.saveSettings)
-	
-	moreYield:loadSettings()
+function moreYield.logError(errorMessage, ...)
+	if (moreYield.other.debug == true) then Logging.error(string.format("[%s]: " .. errorMessage, moreYield.other.name, ...)) end
+end
 
-	moreYield:Init()
-	
-	Logging.info("[%s]: End of mod initalization.", moreYield.name)
+function moreYield:outFormat(data)
+    if (type(data) == "number") then return tonumber(string.format("%.1f", data))
+	elseif (type(data) == "string") then return tostring(string.format("%.1f", data))
+    else return "N/A"
+    end
+end
+
+function moreYield.prerequisitesPresent(specializations)
+    return true
 end
 
 function moreYield:mouseEvent(posX, posY, isDown, isUp, button)
@@ -46,185 +55,97 @@ end
 function moreYield:draw(dt)
 end
 
-function moreYield:defSettings()
-	moreYield.settings.Multiplier = 2
-	moreYield.settings.OldMultiplier = 2
-end
+BaseMission.loadMapFinished = Utils.prependedFunction(BaseMission.loadMapFinished, function(...)
+    moreYield.logInfo("Initializing mod v%s [%s] (c) 2025 by %s.", moreYield.other.version, moreYield.other.updated, moreYield.other.author)
+
+    moreYieldSettings:Load(moreYield.settings)
+    moreYieldUi:injectUiSettings()
+	
+	moreYield:Init()
+    
+    moreYield.logInfo("End of mod initalization.")
+end)
+
+FSBaseMission.delete = Utils.appendedFunction(FSBaseMission.delete, function(...)
+	if (moreYield.settings ~= nil) then
+		removeModEventListener(moreYield.settings)
+		
+		moreYield.settings = nil
+	end
+end)
+
+ItemSystem.save = Utils.appendedFunction(ItemSystem.save, function(...)
+    moreYieldSettings:Save(moreYield.settings)
+end)
 
 function moreYield:Init()
-	local updated = 0
-	local types = {
-			"WHEAT", 
-			"BARLEY",
-			"CANOLA",
-			"OAT", 
-			"MAIZE", 
-			"SUNFLOWER",
-			"SOYBEAN", 
-			"COTTON",
-			"SORGHUM",
-			"GRAPE", 
-			"OLIVE",
-			"POPLAR",
-			"GRASS",
-			"MEADOW",
-			"OILSEEDRADISH",
-			"RICE",
-			"RICELONGGRAIN",
-			"PEA",
-			"POTATO",
-			"CARROT",
-			"PARSNIP",
-			"BEETROOT", 
-			"SPINACH", 
-			"GREENBEAN", 
-			"SUGARBEET",
-			"SUGARCANE",
-			-- NF MARCH CUSTOM FRUITTYPES
-			"SPELT",
-			"RYE",
-			"TRITICALE",
-			"SUMMERWHEAT",
-			"SUMMERBARLEY",
-			"HEMP",
-			"LINSEED",
-			"ALFALFA",
-			"BEANS",
-			"PEAS"
-		}
+    local CropUpdated = 0
+    local WindrowUpdated = 0
+    local fruitTypes = g_fruitTypeManager.fruitTypes
+	
+	if not (fruitTypes) or (fruitTypes == nil) or (fruitTypes == "") then
+        moreYield.logError("There was a critical error due 'g_fruitTypeManager.fruitTypes' that was 'nil' due 'BaseMission.loadMapFinished' function!")
+		
+		return
+	end
+	
+    moreYield.logInfo("Start of crops yield updates...")
 
-	Logging.info("[%s]: Start of crops yield updates. - Total: %s", moreYield.name, table.getn(types))
-
-	for index, validFruit in pairs(g_fruitTypeManager.fruitTypes) do
-
-		for _, fruitTypeName in ipairs(types) do
-			local fruitType = g_fruitTypeManager:getFruitTypeByName(fruitTypeName)
-
-			if fruitType ~= nil and fruitType == validFruit then
-				local OldMultiplier = 0
-				
-				if moreYield.settings.OldMultiplier ~= moreYield.settings.Multiplier then OldMultiplier = moreYield.settings.OldMultiplier end
+	for fruitName, fruitTypeTable in pairs(fruitTypes) do       
+		local CropName, CropLiters, CropDefLiters, WindrowName, WindrowSupport, WindrowLiters, WindrowDefLiters
+		
+		for key, value in pairs(fruitTypeTable) do
+			if (type(value) ~= "table") and (type(value) ~= "function") then                   
+				local item = tostring(key)
+				local data = tostring(value)
 			
-				local defLiters = g_fruitTypeManager.fruitTypes[index].defaultLiterPerSqm
-				local oldLiters = math.abs(tonumber(string.format("%.6f", g_fruitTypeManager.fruitTypes[index].literPerSqm)))
-				
-				if not defLiters then
-					g_fruitTypeManager.fruitTypes[index].defaultLiterPerSqm = oldLiters
-					
-					defLiters = oldLiters
-				end
-				
-				local newLiters = math.abs(tonumber(string.format("%.6f", defLiters * moreYield.settings.Multiplier)))
-				
-				g_fruitTypeManager.fruitTypes[index].literPerSqm = newLiters
-				
-				Logging.info("[%s]: %s crop yield literpersqm status updated. - Default: %s - Old: %s - New: %s - Old Multiplier: %s - New Multiplier: %s", moreYield.name, fruitTypeName, defLiters, oldLiters, newLiters, OldMultiplier, moreYield.settings.Multiplier)
-				
-				local supportWindrow = g_fruitTypeManager.fruitTypes[index].hasWindrow
-				local windrowName = g_fruitTypeManager.fruitTypes[index].windrowName
-				local defwindrowLiters = g_fruitTypeManager.fruitTypes[index].defaultwindrowLiterPerSqm
-				local windrowLiters = g_fruitTypeManager.fruitTypes[index].windrowLiterPerSqm
-				
-				if supportWindrow ~= nil and windrowLiters ~= nil then
-					local oldwindrowLiters = math.abs(tonumber(string.format("%.6f", windrowLiters)))
-					
-					if not defwindrowLiters then 
-						g_fruitTypeManager.fruitTypes[index].defaultwindrowLiterPerSqm = oldwindrowLiters
-						
-						defwindrowLiters = oldwindrowLiters	
-					end
-					
-					local newwindrowLiters = math.abs(tonumber(string.format("%.6f", defwindrowLiters + moreYield.settings.Multiplier)))
-					
-					g_fruitTypeManager.fruitTypes[index].windrowLiterPerSqm = newwindrowLiters
-				
-					Logging.info("[%s]: %s crop yield windrowliterpersqm status updated. - Windrow: %s - Default: %s - Old: %s - New: %s - Old Multiplier: %s - New Multiplier: %s", moreYield.name, fruitTypeName, windrowName, defwindrowLiters, oldwindrowLiters, newwindrowLiters, OldMultiplier, moreYield.settings.Multiplier)
-				end
-				
-				updated = updated + 1
+				if (item == "name") then CropName = data end
+				if (item == "literPerSqm") then CropLiters = data end
+				if (item == "defaultLiterPerSqm") then CropDefLiters = data end
+				if (item == "windrowName") then WindrowName = data end
+				if (item == "hasWindrow") then WindrowSupport = data end
+				if (item == "windrowLiterPerSqm") then WindrowLiters = data end
+				if (item == "defaultwindrowLiterPerSqm") then WindrowDefLiters = data end
 			end
+		end
+		
+		if (CropName) and (CropLiters) then 
+			if not (CropDefLiters) then 
+				CropDefLiters = CropLiters
+				
+				g_fruitTypeManager.fruitTypes[fruitName].defaultLiterPerSqm = CropDefLiters
+			end
+
+			local CropNewLiters = CropDefLiters * moreYield.settings.CropMultiplier
+			local CropOldLiters = CropLiters
 			
+			g_fruitTypeManager.fruitTypes[fruitName].literPerSqm = CropNewLiters
+			
+			CropUpdated = CropUpdated + 1
+		
+			moreYield.logInfo("%s crop yield literpersqm status updated. - Default: %s - Old: %s - New: %s - Multiplier: %s", CropName, moreYield:outFormat(CropDefLiters), moreYield:outFormat(CropOldLiters), moreYield:outFormat(CropNewLiters), moreYield:outFormat(moreYield.settings.CropMultiplier))
+		end
+		
+		if (WindrowName) and (WindrowSupport) and (WindrowLiters) then
+			if not (WindrowDefLiters) then  
+				WindrowDefLiters = WindrowLiters
+				
+				g_fruitTypeManager.fruitTypes[fruitName].defaultwindrowLiterPerSqm = WindrowDefLiters
+			end
+		
+			local WindrowNewLiters = WindrowDefLiters * moreYield.settings.WindrowMultiplier
+			local WindrowOldLiters = WindrowLiters
+			
+			g_fruitTypeManager.fruitTypes[fruitName].windrowLiterPerSqm = WindrowNewLiters
+			
+			WindrowUpdated = WindrowUpdated + 1
+			
+			moreYield.logInfo("%s crop yield windrowliterpersqm status updated. - Windrow: %s - Default: %s - Old: %s - New: %s - Multiplier: %s", CropName, WindrowName, moreYield:outFormat(WindrowDefLiters), moreYield:outFormat(WindrowOldLiters), moreYield:outFormat(WindrowNewLiters), moreYield:outFormat(moreYield.settings.WindrowMultiplier))
 		end
 
 	end
-
-	Logging.info("[%s]: End of crops yield updates. - Updated: %s - Total: %s", moreYield.name, updated, table.getn(types))
-
-end
-
-function moreYield:saveSettings()
-	Logging.info("[%s]: Trying to save settings..", moreYield.name)
-
-	local xmlPath = getUserProfileAppPath() .. "modSettings" .. "/" .. "moreYield.xml"
-	local xmlFile = createXMLFile("moreYield", xmlPath, "moreYield")
 	
-	Logging.info("[%s]: Saving settings to '%s' ..", moreYield.name, xmlPath)
-	
-	setXMLFloat(xmlFile, "moreYield.yield#Multiplier",moreYield.settings.Multiplier)
-	
-	saveXMLFile(xmlFile)
-	delete(xmlFile)
-	
-	Logging.info("[%s]: Settings have been saved.", moreYield.name)
-end
-
-function moreYield:loadSettings()
-	Logging.info("[%s]: Trying to load settings..", moreYield.name)
-	
-	local xmlPath = getUserProfileAppPath() .. "modSettings" .. "/" .. "moreYield.xml"
-	
-	Logging.info("[%s]: Loading settings from '%s' ..", moreYield.name, xmlPath)
-	
-	if fileExists(xmlPath) then
-		Logging.info("[%s]: File founded, loading now the settings..", moreYield.name)
-		
-		local xmlFile = loadXMLFile("moreYield", xmlPath)
-		
-		if xmlFile == 0 then
-			Logging.warning("[%s]: Could not read the data from XML file, maybe the XML file is empty or corrupted, using the default!", moreYield.name)
-			
-			moreYield:defSettings()
-			
-			Logging.info("[%s]: Settings have been loaded.", moreYield.name)
-			
-			return
-		end
-
-		local Multiplier = Utils.getNoNil( getXMLFloat(xmlFile, "moreYield.yield#Multiplier"), 2);
-
-		if Multiplier < 1.5 then
-			Logging.warning("[%s]: Could not retrieve the correct 'Multiplier' digital number value because it is lower than '1.5' from the XML file or it is corrupted, using the default!", moreYield.name)
-			
-			Multiplier = 2
-		end
-		
-		if Multiplier > 100 then
-			Logging.warning("[%s]: Could not retrieve the correct 'Multiplier' digital number value because it is higher than '100' from the XML file or it is corrupted, using the default!", moreYield.name)
-			
-			Multiplier = 2
-		end
-		
-		moreYield.settings.Multiplier = Multiplier
-		moreYield.settings.OldMultiplier = Multiplier
-		
-		delete(xmlFile)
-					
-		Logging.info("[%s]: Settings have been loaded.", moreYield.name)
-	else
-		moreYield:defSettings()
-
-		Logging.info("[%s]: NOT any file founded!, using the default settings.", moreYield.name)
-	end
-end
-
-function moreYield:initUi()
-	if not moreYield.initUI then
-		local uiSettingsmoreYield = moreYieldUI.new(moreYield.settings)
-		
-		uiSettingsmoreYield:registerSettings()
-		
-		moreYield.initUI = true
-	end
+	moreYield.logInfo("End of crops and windrow yield updates. - Crop(s) Updated: %s - Windrow(s) Updated: %s", CropUpdated, WindrowUpdated)
 end
 
 addModEventListener(moreYield)
