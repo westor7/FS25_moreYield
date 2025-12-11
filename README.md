@@ -4,10 +4,10 @@
 
 This mod allows you to change in **Farming Simulator 2025 (FS25)** the harvesting yield and windrow harversting yield per liter, so you can have more yield and more windrow while you're harvesting, this is also working while you are working in game missions, also you have the opportunity to adjust the multiplier under game `Game Settings` directly, just make sure that if you change the any setting under the game settings menu then you have to make a new save game to push the settings from the game into a file named `FS25_moreYield.xml` that is being created under your savegame folder in your `<drive>:\Documents\My Games\FarmingSimulator2025\savegame<number>` game folder.
 
-- Supports all base game crops (e.g: `WHEAT`) and either it's windrow name (e.g: `STRAW`).
-- Supports also any custom map crop (e.g: `RYE`) and either it's windrow name (e.g: `FLAX`).
-- Adjustable options under `Game Settings` to be able to increase/decrease any value.
-- Fully multiplayer supported by servers and clients.
+✅ Supports all base game crops (e.g: `WHEAT`) and either it's windrow name (e.g: `STRAW`).<br>
+✅ Supports also any custom map crop (e.g: `RYE`) and either it's windrow name (e.g: `FLAX`).<br>
+✅ Adjustable options under `Game Settings` to be able to increase/decrease any value.<br>
+☑️ Fully multiplayer supported by servers and clients.
 
 > [!IMPORTANT]
 > Multiplayer is NOT fully tested so far and may having some bugs, it's under todo list.
